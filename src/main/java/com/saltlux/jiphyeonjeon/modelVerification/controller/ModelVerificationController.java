@@ -1,9 +1,14 @@
 package com.saltlux.jiphyeonjeon.modelVerification.controller;
 
+import com.saltlux.jiphyeonjeon.modelVerification.service.ModelVerificationService;
 import com.saltlux.jiphyeonjeon.modelVerification.vo.ModelVO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +17,9 @@ import java.util.List;
 public class ModelVerificationController {
 
     private List<ModelVO> modelList = null;
+
+    @Autowired
+    ModelVerificationService modelVerificationService;
 
     public ModelVerificationController() {
         modelList = new ArrayList<>();
@@ -62,38 +70,6 @@ public class ModelVerificationController {
         return "pagingTest";
 
     }
+
 }
-
-/*
-    @PostMapping("/paging/result")
-    public String showPage(Model model){
-        List<ModelVO> modelResultList = null;
-        ModelVO modelObj = null;
-        int pageNumber = 1;
-        int pageSize = 5;
-        int startPage = (pageNumber / pageSize) * pageSize + 1;
-        int totalPages = modelList.size() / pageSize;
-
-        if(totalPages % pageSize > 0){
-            totalPages++;
-        }
-
-        for(int i = 0; i < 5; i++){
-            modelObj = new ModelVO(i, i + "번째 이갑성");
-            modelResultList.add(modelObj);
-        }
-
-        model.addAttribute("modelList", modelResultList);
-        model.addAttribute("pageNumber", pageNumber);
-        model.addAttribute("pageSize", pageSize);
-        model.addAttribute("startPage", startPage);
-        model.addAttribute("totalPage", totalPages);
-
-
-
-
-
-        return "pagingTest";
-    }
-*/
 

@@ -88,33 +88,13 @@
 </div>
 
     <!-- 페이징 소스 -->
-    <div style="padding-left: 90px;">
+    <div style="padding-left: 880px;">
         <c:set var="pageNumber" value="${pageNumber}" />
         <c:set var="pageSize" value="${pageSize}" />
         <c:set var="totalPages" value="${totalPages}" />
         <c:set var="startPage" value="${startPage}" />
         <c:set var="endPage" value="${(totalPages == 0) ? 1 : (startPage + (pageSize - 1) < totalPages ? startPage + (pageSize - 1) : totalPages)}" />
         <c:set var="end" value="${totalPages/10 > 5 ? 5:totalPages/10 }" />
-        <div>
-            <table style="width:1000px;">
-                <tbody>
-                    <tr>
-                        <td>페이지 번호</td>
-                        <td>페이지 사이즈</td>
-                        <td>전체 페이지 개수</td>
-                        <td>시작 페이지</td>
-                        <td>마지막 페이지</td>
-                    </tr>
-                    <tr>
-                         <td><c:out value="${pageNumber}"/></td>
-                         <td><c:out value="${pageSize}"/></td>
-                         <td><c:out value="${totalPages}"/></td>
-                         <td><c:out value="${startPage}"/></td>
-                         <td><c:out value="${endPage}"/></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
 
         <nav aria-label="Page navigation">
 
@@ -153,7 +133,7 @@
 
     <br/>
     <div>
-        <table border="1" class="table table-striped" style="width:500px; margin-left: 700px">
+        <table border="1" class="table table-striped" style="width:500px; margin-left: 750px">
             <thead>
                 <tr>
                     <th>No</th>

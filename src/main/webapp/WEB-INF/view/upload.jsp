@@ -1,7 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+
+<html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>
         뉴스 검색 시스템
     </title>
@@ -14,39 +21,6 @@
     <link href="https://fonts.googleapis.com/css?family=Jua&display=swap&subset=korean" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Stylish&display=swap&subset=korean" rel="stylesheet">
 
-    <script>
-        function preventDefaults(e) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
-
-        const dropArea = document.getElementById("drop-file");
-
-        function highlight(e) {
-          preventDefaults(e);
-          dropArea.classList.add("highlight");
-        }
-
-        function unhighlight(e) {
-          preventDefaults(e);
-          dropArea.classList.remove("highlight");
-        }
-
-        function handleDrop(e) {
-          unhighlight(e);
-          let dt = e.dataTransfer;
-          let files = dt.files;
-
-          console.log(files);
-
-          // addToFileList
-          // ...
-        }
-
-        dropArea.addEventListener("dragenter", highlight, false);
-        dropArea.addEventListener("dragover", highlight, false);
-        dropArea.addEventListener("dragleave", unhighlight, false);
-    </script>
     <style>
             table {
                 width: 100%;
@@ -104,50 +78,6 @@
                 background: #add8e6;
             }
 
-            /* 파일 업로드에 관한 CSS */
-
-            .file-label {
-              margin-top: 30px;
-              background-color: #5b975b;
-              color: #fff;
-              text-align: center;
-              padding: 10px 0;
-              width: 65%;
-              border-radius: 6px;
-              cursor: pointer;
-            }
-            .file {
-              display: none;
-            }
-
-            .upload-box {
-              width: calc(50% - 15px);
-              box-sizing: border-box;
-              margin-right: 30px;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-            }
-            .upload-box .drag-file {
-              width: 100%;
-              height: 360px;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-              border: 3px dashed #dbdbdb;
-            }
-            .upload-box .drag-file.highlight {
-              border: 3px dashed red;
-            }
-            .upload-box .drag-file .image {
-              width: 40px;
-            }
-            .upload-box .drag-file .message {
-              margin-bottom: 0;
-            }
-
 
     </style>
 </head>
@@ -157,18 +87,18 @@
            style="width:500px; padding-top: 70px;font-size:60px;font-family: 'Jua', sans-serif; margin-left:100px"><a
                 href="/newsSearch" style="text-decoration:none; ">파일업로드 시스템</a>
 
-        <form action="/upload" method="post" enctype="multipart/form-data">
-            <div>
-                <input multiple="multiple" type="file" name="files"/>
-            </div>
+        <form action="/upload/files" method="post" enctype="multipart/form-data">
 
+            <input class="form-control" type="file" id="formFileMultiple" multiple="multiple" name="file" />
+            <br/>
             <div>
-                <button class="btn indigo waves-effect waves-light"
-                        type="submit" name="save">
-
-                    Submit<i class="mdi-content-send right"></i>
-                </button>
+                <button class="btn btn-secondary" type="submit" name="save">업로드</button>
             </div>
+        </form>
+
+        <form name="fileForm" action="/upload/files" method="post" enctype="multipart/form-data">
+                <input multiple="multiple"  type="file" name="picFile" required="required">
+                <input type="submit" value="전송" />
         </form>
     </div>
 

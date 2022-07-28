@@ -32,6 +32,12 @@ dependencies {
 	//jsp 수정 후 새로고침으로 반영하기 위한 dependency
 	implementation 'org.springframework.boot:spring-boot-devtools'
 
+	//File Upload (대용량 파일 처리)
+	implementation 'commons-io:commons-io:2.11.0'
+
+	// File Upload (file upload 기능 사용)
+	implementation 'commons-fileupload:commons-fileupload:1.4'
+
 }
 
 tasks.named('test') {
