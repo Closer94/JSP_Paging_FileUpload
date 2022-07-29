@@ -21,6 +21,34 @@
     <link href="https://fonts.googleapis.com/css?family=Jua&display=swap&subset=korean" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Stylish&display=swap&subset=korean" rel="stylesheet">
 
+    <script type="text/javascript">
+/*
+    window.onload = function() {
+        document.getElementById('btn').onclick = function() {
+            console.log("step1");
+            document.getElementById('frm').submit();
+            console.log("step2");
+            location.href="http://localhost:8080/upload/form";
+
+            console.log("step3");
+
+        };
+    };
+
+document.addEventListener("DOMContentLoaded", function(){
+    var btn = document.getElementById("btn");
+    btn.addEventListener("click", function () {
+      var form = document.getElementById("frm");
+
+      form.action = "http://localhost:8080/upload/files";
+      form.mothod = "POST";
+      form.submit();
+
+    });
+*/
+});
+    </script>
+
     <style>
             table {
                 width: 100%;
@@ -87,12 +115,12 @@
            style="width:500px; padding-top: 70px;font-size:60px;font-family: 'Jua', sans-serif; margin-left:100px"><a
                 href="/newsSearch" style="text-decoration:none; ">파일업로드 시스템</a>
 
-        <form action="/upload/files" method="post" enctype="multipart/form-data">
+        <form id="frm" action="/upload/files" method="post" enctype="multipart/form-data">
 
             <input class="form-control" type="file" id="formFileMultiple" multiple="multiple" name="file" />
             <br/>
             <div>
-                <button class="btn btn-secondary" type="submit" name="save" href="">업로드</button>
+                <button id="btn" class="btn btn-secondary" name="save" >업로드</button>
             </div>
         </form>
 
