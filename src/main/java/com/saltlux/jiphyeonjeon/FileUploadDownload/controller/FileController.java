@@ -1,6 +1,10 @@
 package com.saltlux.jiphyeonjeon.FileUploadDownload.controller;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.ContentDisposition;
+import org.springframework.http.HttpHeaders;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -8,8 +12,16 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 
@@ -80,25 +92,24 @@ public class FileController {
         }
     }
 
-/*
+
     @GetMapping("/download")
-    public String download() {
-        String path = "C:\\upload\\jarzip.PNG";
+    public void download(String fileName, HttpServletResponse response) throws IOException{
+        System.out.println("fileName: " + fileName);
+        String path = "C:\\upload\\"+fileName+".pptx";
 
-        try {
-            Path filePath = Paths.get(path);
-            Resource resource = new InputStreamResource(Files.newInputStream(filePath)); // 파일 resource 얻기
+        byte[] fileByte = FileUtils.readFileToByteArray(new File(path));
 
-            File file = new File(path);
 
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentDisposition(ContentDisposition.builder("attachment").filename(file.getName()).build());  // 다운로드 되거나 로컬에 저장되는 용도로 쓰이는지를 알려주는 헤더
+        response.setContentType("application/octet-stream");
+        response.setHeader("Content-Disposition", "attachment; fileName=\"" + URLEncoder.encode(fileName+".pptx", "UTF-8")+"\";");
+        response.setHeader("Content-Transfer-Encoding", "binary");
 
-            return "redirect:/upload/form";
-        } catch(Exception e) {
-            return "redirect:/upload/form";
-        }
+        response.getOutputStream().write(fileByte);
+        response.getOutputStream().flush();
+        response.getOutputStream().close();
+
     }
-*/
+
 
 }

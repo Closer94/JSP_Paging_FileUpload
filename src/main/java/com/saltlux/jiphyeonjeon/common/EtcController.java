@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class EtcController {
 
-    @GetMapping("/errorPage")
+    @GetMapping("/error")
     public String error(){
-        return "errorView";
+        return "error";
     }
 }

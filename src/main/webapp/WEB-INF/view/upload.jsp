@@ -22,33 +22,9 @@
     <link href="https://fonts.googleapis.com/css?family=Stylish&display=swap&subset=korean" rel="stylesheet">
 
     <script type="text/javascript">
-/*
-    window.onload = function() {
-        document.getElementById('btn').onclick = function() {
-            console.log("step1");
-            document.getElementById('frm').submit();
-            console.log("step2");
-            location.href="http://localhost:8080/upload/form";
 
-            console.log("step3");
 
-        };
-    };
-
-document.addEventListener("DOMContentLoaded", function(){
-    var btn = document.getElementById("btn");
-    btn.addEventListener("click", function () {
-      var form = document.getElementById("frm");
-
-      form.action = "http://localhost:8080/upload/files";
-      form.mothod = "POST";
-      form.submit();
-
-    });
-*/
-});
     </script>
-
     <style>
             table {
                 width: 100%;
@@ -124,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function(){
             </div>
         </form>
 
-         <a href="/download">
+         <a href="/download?fileName=DJIP-OO-DE-08(화면설계서-디지털집현전 WEB)_v1.0_20220722">
             DJIP-OO-DE-08(화면설계서-디지털집현전 WEB)_v1.0_20220722.pptx
          </a>
     </div>
