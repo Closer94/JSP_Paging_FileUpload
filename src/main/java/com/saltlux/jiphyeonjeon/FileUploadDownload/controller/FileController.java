@@ -100,7 +100,7 @@ public class FileController {
 
         byte[] fileByte = FileUtils.readFileToByteArray(new File(path));
 
-
+        //response 객체를 사용하는 이유: 아래에서 Front가 파일을 다운받을 수 있게 HttpServletResponse객체에 Contet-Type, Content-dispositon 등 정보를 담아 전송 한다.
         response.setContentType("application/octet-stream");
         response.setHeader("Content-Disposition", "attachment; fileName=\"" + URLEncoder.encode(fileName+".pptx", "UTF-8")+"\";");
         response.setHeader("Content-Transfer-Encoding", "binary");
