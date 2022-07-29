@@ -1,4 +1,4 @@
-package com.saltlux.jiphyeonjeon.modelVerification.controller;
+package com.saltlux.jiphyeonjeon.FileUploadDownload.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +34,6 @@ public class FileUploadController {
         //넘어온 파일을 리스트로 저장
         List<MultipartFile> fileList = multiRequest.getFiles("file");
 
-
         for (MultipartFile mf : fileList) {
             String originFileName = mf.getOriginalFilename(); //원본 파일 명
             long fileSize = mf.getSize(); //파일 사이즈
@@ -48,13 +47,35 @@ public class FileUploadController {
             }catch (IllegalStateException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
+                return "/errorPage";
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
+                return "/errorPage";
             }
 
         }
 
         return "redirect:/upload/form";
     }
+/*
+    @GetMapping("/download")
+    public String download() {
+        String path = "C:\\upload\\jarzip.PNG";
+
+        try {
+            Path filePath = Paths.get(path);
+            Resource resource = new InputStreamResource(Files.newInputStream(filePath)); // 파일 resource 얻기
+
+            File file = new File(path);
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentDisposition(ContentDisposition.builder("attachment").filename(file.getName()).build());  // 다운로드 되거나 로컬에 저장되는 용도로 쓰이는지를 알려주는 헤더
+
+            return "redirect:/upload/form";
+        } catch(Exception e) {
+            return "redirect:/upload/form";
+        }
+    }
+*/
 }

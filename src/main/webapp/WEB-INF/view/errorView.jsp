@@ -1,17 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
 
 <html>
 <head>
     <meta charset="utf-8">
-    <title>
-        뉴스 검색 시스템
-    </title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -78,27 +69,14 @@
                 background: #add8e6;
             }
 
-
     </style>
 </head>
 <body style="background:#edf1f8;" onload="InitializeStaticMenu();">
     <div class="positionHead">
         <p title="검색 페이지로 이동"
-           style="width:500px; padding-top: 70px;font-size:60px;font-family: 'Jua', sans-serif; margin-left:100px"><a
-                href="/newsSearch" style="text-decoration:none; ">파일업로드 시스템</a>
+           style="width:800px;padding-top: 70px;font-size:60px;font-family: 'Jua', sans-serif;">
+            <a href="/newsSearch" style="text-decoration:none; ">404 오류 페이지 입니다.</a>
 
-        <form action="/upload/files" method="post" enctype="multipart/form-data">
-
-            <input class="form-control" type="file" id="formFileMultiple" multiple="multiple" name="file" />
-            <br/>
-            <div>
-                <button class="btn btn-secondary" type="submit" name="save" href="">업로드</button>
-            </div>
-        </form>
-
-         <a href="/download">
-            DJIP-OO-DE-08(화면설계서-디지털집현전 WEB)_v1.0_20220722.pptx
-         </a>
     </div>
 
 </body>

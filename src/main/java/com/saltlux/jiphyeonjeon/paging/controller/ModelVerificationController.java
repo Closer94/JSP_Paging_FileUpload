@@ -1,7 +1,6 @@
-package com.saltlux.jiphyeonjeon.modelVerification.controller;
+package com.saltlux.jiphyeonjeon.paging.controller;
 
-import com.saltlux.jiphyeonjeon.modelVerification.vo.ModelVO;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.saltlux.jiphyeonjeon.paging.vo.ModelVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,9 +12,6 @@ import java.util.List;
 public class ModelVerificationController {
 
     private List<ModelVO> modelList = null;
-
-    @Autowired
-    ModelVerificationService modelVerificationService;
 
     public ModelVerificationController() {
         modelList = new ArrayList<>();

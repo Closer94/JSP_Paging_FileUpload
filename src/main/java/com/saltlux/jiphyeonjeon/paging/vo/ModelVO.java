@@ -1,4 +1,4 @@
-package com.saltlux.jiphyeonjeon.modelVerification.vo;
+package com.saltlux.jiphyeonjeon.paging.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
