@@ -1,4 +1,4 @@
-package com.saltlux.jiphyeonjeon.conf;
+package com.saltlux.jiphyeonjeon.FileUploadDownload.conf;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

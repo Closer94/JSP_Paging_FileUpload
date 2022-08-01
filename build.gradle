@@ -12,6 +12,7 @@ configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
+
 }
 
 repositories {
@@ -29,14 +30,23 @@ dependencies {
 	// jstl 쓰기 위한
 	implementation 'javax.servlet:jstl'
 
-	//jsp 수정 후 새로고침으로 반영하기 위한 dependency
+	// jsp 수정 후 새로고침으로 반영하기 위한 dependency
 	implementation 'org.springframework.boot:spring-boot-devtools'
 
-	//File Upload (대용량 파일 처리)
+	// File Upload (대용량 파일 처리)
 	implementation 'commons-io:commons-io:2.11.0'
 
 	// File Upload (file upload 기능 사용)
 	implementation 'commons-fileupload:commons-fileupload:1.4'
+
+	//build 할때 libs 폴더에 있는 jar 파일도 같이 빌드 될 수 있는 설정
+//	implementation fileTree(dir: 'libs', include: '*.jar')
+	implementation group: 'org.zeroturnaround', name: 'zt-zip', version: '1.8'
+//Thanks for using https://jar-download.com
+
+
+
+
 
 }
 

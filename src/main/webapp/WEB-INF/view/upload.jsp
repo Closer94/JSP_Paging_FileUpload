@@ -87,9 +87,9 @@
 </head>
 <body style="background:#edf1f8;" onload="InitializeStaticMenu();">
     <div class="positionHead">
-        <p title="검색 페이지로 이동"
-           style="width:500px; padding-top: 70px;font-size:60px;font-family: 'Jua', sans-serif; margin-left:100px"><a
-                href="/newsSearch" style="text-decoration:none; ">파일업로드 시스템</a>
+        <p style="width:500px; padding-top: 70px;font-size:60px;font-family: 'Jua', sans-serif; margin-left:80px">
+            <a href="/newsSearch" style="text-decoration:none; ">파일 업로드 시스템</a>
+        </p>
 
         <form id="frm" action="/upload/files" method="post" enctype="multipart/form-data">
 
@@ -100,9 +100,20 @@
             </div>
         </form>
 
-         <a href="/download?fileName=DJIP-OO-DE-08(화면설계서-디지털집현전 WEB)_v1.0_20220722">
+        <p style="width:500px; padding-top: 70px;font-size:60px;font-family: 'Jua', sans-serif; margin-left: 45px">
+            <a href="/newsSearch" style="text-decoration:none; ">파일 다운로드 시스템</a>
+        </p>
+        <a href="/download?fileName=DJIP-OO-DE-08(화면설계서-디지털집현전 WEB)_v1.0_20220722">
             DJIP-OO-DE-08(화면설계서-디지털집현전 WEB)_v1.0_20220722.pptx
-         </a>
+        </a>
+
+        <p style="width:500px; padding-top: 70px;font-size:60px;font-family: 'Jua', sans-serif; margin-left: 45px">
+            <a href="/newsSearch" style="text-decoration:none; ">폴더 다운로드 시스템</a>
+        </p>
+        <a href="/download/zip?folderName=test">
+            다운로드
+        </a>
+
     </div>
 
 </body>
